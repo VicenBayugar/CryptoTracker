@@ -14,3 +14,11 @@ export const AddCryptoButton = styled.Text`
   margin-top: 15px;
   margin-bottom: 15px;
 `;
+
+export const EmptyList = styled.Text`
+  font-size: 25;
+  color: #476280;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+`;
