@@ -8,7 +8,7 @@ import {
   Title,
   Input,
   ButtonContainer,
-  EmptyInputMessage,
+  ButtonDisabled,
   Button,
 } from './styles';
 
@@ -16,20 +16,11 @@ const AddCryptoForm = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const [search, setSearch] = useState('');
-  const [searchIsEmpty, setSearchIsEmpty] = useState(false);
 
   const searchCrypto = () => {
-    if (search === '') {
-      setSearchIsEmpty(true);
-      setTimeout(() => {
-        setSearchIsEmpty(false);
-      }, 2000);
-      return;
-    }
-
     dispatch(getCrypto(search));
     setSearch('');
-    navigation.navigate('Home');
+    navigation.goBack();
   };
   return (
     <>
@@ -38,17 +29,18 @@ const AddCryptoForm = () => {
         <Input
           placeholder="Use a name or ticker symbol..."
           value={search}
-          onChangeText={val => setSearch(val)}
+          onChangeText={setSearch}
         />
         <ButtonContainer>
-          {searchIsEmpty ? (
-            <EmptyInputMessage>
-              Write the name or symbol of a cryptocurrency...
-            </EmptyInputMessage>
-          ) : null}
-          <Button onPress={searchCrypto}>
-            <Text>Add</Text>
-          </Button>
+          {search.length < 1 ? (
+            <ButtonDisabled onPress={searchCrypto} disabled={true}>
+              <Text>Add</Text>
+            </ButtonDisabled>
+          ) : (
+            <Button onPress={searchCrypto} disabled={false}>
+              <Text>Add</Text>
+            </Button>
+          )}
         </ButtonContainer>
       </Container>
     </>

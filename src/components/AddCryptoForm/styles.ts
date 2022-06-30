@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import theme from '../../utils/theme';
 
 export const Container = styled.View`
   display: flex;
@@ -11,7 +12,7 @@ export const Container = styled.View`
 export const Title = styled.Text`
   font-size: 25px;
   font-weight: bold;
-  color: black;
+  color: ${theme.colors.black};
   margin-bottom: 20px;
   text-align: left;
   width: 88%;
@@ -19,7 +20,7 @@ export const Title = styled.Text`
 
 export const Input = styled.TextInput`
   height: 60px;
-  border-color: #bbbaba;
+  border-color: ${theme.colors.grey};
   border-width: 1px;
   border-radius: 5px;
   padding: 10px;
@@ -40,7 +41,19 @@ export const Button = styled.TouchableOpacity`
   height: 50px;
   width: 50%;
   margin-left: auto;
-  background-color: #e6c301;
+  background-color: ${theme.colors.yellow};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  border-radius: 5px;
+`;
+
+export const ButtonDisabled = styled.TouchableOpacity`
+  height: 50px;
+  width: 50%;
+  margin-left: auto;
+  background-color: ${theme.colors.yellowDisabled};
   display: flex;
   justify-content: center;
   align-items: center;

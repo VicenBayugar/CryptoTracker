@@ -1,9 +1,10 @@
 import styled from 'styled-components/native';
+import theme from '../../utils/theme';
 
 export const Container = styled.View`
   padding-top: 25px;
   padding-bottom: 25px;
-  border-color: #c4c4c4;
+  border-color: ${theme.colors.grey};
   border-bottom-width: 0.19px;
   display: flex;
   flex-direction: row;
@@ -22,7 +23,7 @@ export const NameContainer = styled.View`
 export const Title = styled.Text`
   font-size: 18;
   font-weight: bold;
-  color: black;
+  color: ${theme.colors.black};
 `;
 
 export const PricesContainer = styled.View`
@@ -32,7 +33,7 @@ export const PricesContainer = styled.View`
 export const Price = styled.Text`
   font-size: 18;
   font-weight: bold;
-  color: black;
+  color: ${theme.colors.black};
   text-align: right;
 `;
 

@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import theme from '../../utils/theme';
 
 export const Container = styled.View`
   display: flex;
@@ -9,7 +10,7 @@ export const Container = styled.View`
 
 export const AddCryptoButton = styled.Text`
   font-size: 17px;
-  color: #476280;
+  color: ${theme.colors.blue};
   text-align: center;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -17,7 +18,7 @@ export const AddCryptoButton = styled.Text`
 
 export const EmptyList = styled.Text`
   font-size: 25;
-  color: #476280;
+  color: ${theme.colors.blue};
   text-align: center;
   padding-top: 15px;
   padding-bottom: 15px;

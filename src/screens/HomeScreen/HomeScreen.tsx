@@ -5,7 +5,6 @@ import Cryptocurrencies from '../../components/Cryptocurrencies/Cryptocurrencies
 import {Container, AddCryptoButton, EmptyList, CryptoList} from './styles';
 
 const Home = ({navigation}) => {
-  // const {cryptos} = useSelector(state => state.cryptos);
   const cryptos = [
     {
       data: {
@@ -41,6 +40,7 @@ const Home = ({navigation}) => {
       },
     },
   ];
+
   return (
     <>
       <StatusBar backgroundColor={'#476280'} />
@@ -55,7 +55,8 @@ const Home = ({navigation}) => {
           ) : (
             <EmptyList>The list is empty!</EmptyList>
           )}
-          <TouchableOpacity onPress={() => navigation.navigate('Back to list')}>
+          <TouchableOpacity
+            onPress={navigation.navigate.bind(null, 'AddCryptoScreen')}>
             <AddCryptoButton>+ Add a Cryptocurrency</AddCryptoButton>
           </TouchableOpacity>
         </ScrollView>
