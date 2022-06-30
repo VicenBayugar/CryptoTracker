@@ -2,7 +2,7 @@ import React from 'react';
 import {FlatList, ScrollView, StatusBar, TouchableOpacity} from 'react-native';
 import {useSelector} from 'react-redux';
 import Cryptocurrencies from '../../components/Cryptocurrencies/Cryptocurrencies';
-import {Container, AddCryptoButton, EmptyList} from './styles';
+import {Container, AddCryptoButton, EmptyList, CryptoList} from './styles';
 
 const Home = ({navigation}) => {
   // const {cryptos} = useSelector(state => state.cryptos);
@@ -29,6 +29,17 @@ const Home = ({navigation}) => {
         },
       },
     },
+    {
+      data: {
+        id: '21c795f5-1bfd-40c3-858e-e9d7e820c6d0',
+        symbol: 'ETH',
+        name: 'Ethereum',
+        market_data: {
+          price_usd: 1014.6138,
+          percent_change_usd_last_24_hours: -8.92336,
+        },
+      },
+    },
   ];
   return (
     <>
@@ -36,7 +47,7 @@ const Home = ({navigation}) => {
       <Container>
         <ScrollView>
           {cryptos.length > 0 ? (
-            <FlatList
+            <CryptoList
               data={cryptos}
               keyExtractor={item => item.data.id}
               renderItem={({item}) => <Cryptocurrencies item={item} />}

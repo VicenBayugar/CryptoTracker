@@ -11,14 +11,18 @@ export const AddCryptoButton = styled.Text`
   font-size: 17px;
   color: #476280;
   text-align: center;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 `;
 
 export const EmptyList = styled.Text`
   font-size: 25;
   color: #476280;
   text-align: center;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+`;
+
+export const CryptoList = styled.FlatList`
+  padding: 10px 25px 20px 25px;
 `;

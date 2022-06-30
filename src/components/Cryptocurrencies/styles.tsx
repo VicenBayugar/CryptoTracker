@@ -1,9 +1,10 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  padding: 25px;
-  border-color: #a7a7a7;
-  border-bottom-width: 1px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  border-color: #c4c4c4;
+  border-bottom-width: 0.19px;
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -15,7 +16,7 @@ export const Icon = styled.Image`
 `;
 
 export const NameContainer = styled.View`
-  margin-left: 10;
+  padding-left: 10;
 `;
 
 export const Title = styled.Text`
