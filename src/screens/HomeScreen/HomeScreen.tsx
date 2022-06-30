@@ -1,10 +1,12 @@
 import React from 'react';
-import {FlatList, ScrollView, StatusBar, TouchableOpacity} from 'react-native';
+import {ScrollView, StatusBar, TouchableOpacity} from 'react-native';
 import {useSelector} from 'react-redux';
 import Cryptocurrencies from '../../components/Cryptocurrencies/Cryptocurrencies';
 import {Container, AddCryptoButton, EmptyList, CryptoList} from './styles';
+import {useNavigation} from '@react-navigation/native';
 
-const Home = ({navigation}) => {
+const Home = () => {
+  const navigation = useNavigation();
   const cryptos = [
     {
       data: {

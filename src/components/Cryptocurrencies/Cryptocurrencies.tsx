@@ -12,8 +12,9 @@ import {
 } from './styles';
 import ArrowUp from '../../assets/arrow_up.png';
 import ArrowDown from '../../assets/arrow_down.png';
+import CurrencyData from '../../interfaces/CurrencyData';
 
-const Cryptocurrencies = ({item}) => (
+const Cryptocurrencies = ({item}: {item: CurrencyData}) => (
   <Container>
     <Icon
       source={{
