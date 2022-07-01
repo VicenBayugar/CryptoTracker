@@ -1,9 +1,9 @@
 import React from 'react';
 import {ScrollView, StatusBar, TouchableOpacity} from 'react-native';
-import {useSelector} from 'react-redux';
-import Cryptocurrencies from '../../components/Cryptocurrencies/Cryptocurrencies';
+import Cryptocurrencies from '../../components/Cryptocurrencies';
 import {Container, AddCryptoButton, EmptyList, CryptoList} from './styles';
 import {useNavigation} from '@react-navigation/native';
+import theme from '../../utils/theme';
 
 const Home = () => {
   const navigation = useNavigation();
@@ -45,7 +45,7 @@ const Home = () => {
 
   return (
     <>
-      <StatusBar backgroundColor={'#476280'} />
+      <StatusBar backgroundColor={theme.colors.blue} />
       <Container>
         <ScrollView>
           {cryptos.length > 0 ? (
