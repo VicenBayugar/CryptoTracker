@@ -12,16 +12,16 @@ export const Container = styled.View`
 `;
 
 export const Icon = styled.Image`
-  width: 50;
-  height: 50;
+  width: 50px;
+  height: 50px;
 `;
 
 export const NameContainer = styled.View`
-  padding-left: 10;
+  padding-left: 10px;
 `;
 
 export const Title = styled.Text`
-  font-size: 18;
+  font-size: 18px;
   font-weight: bold;
   color: ${theme.colors.black};
 `;
@@ -31,7 +31,7 @@ export const PricesContainer = styled.View`
 `;
 
 export const Price = styled.Text`
-  font-size: 18;
+  font-size: 18px;
   font-weight: bold;
   color: ${theme.colors.black};
   text-align: right;
@@ -42,6 +42,6 @@ export const Percentage = styled.Text`
 `;
 
 export const Arrows = styled.Image`
-  width: 20;
-  height: 20;
+  width: 20px;
+  height: 20px;
 `;

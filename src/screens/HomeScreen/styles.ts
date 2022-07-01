@@ -6,6 +6,7 @@ export const Container = styled.View`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-height: 100%;
 `;
 
 export const AddCryptoButton = styled.Text`
@@ -17,13 +18,15 @@ export const AddCryptoButton = styled.Text`
 `;
 
 export const EmptyList = styled.Text`
-  font-size: 25;
+  font-size: 20px;
+  font-style: italic;
   color: ${theme.colors.blue};
   text-align: center;
-  padding-top: 15px;
+  padding-top: 20px;
   padding-bottom: 15px;
+  max-height: 90%;
 `;
 
 export const CryptoList = styled.FlatList`
-  padding: 10px 25px 20px 25px;
+  padding: 10px 25px 0px 25px;
 `;

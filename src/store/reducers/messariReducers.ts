@@ -1,7 +1,8 @@
-import {GET_CRYPTO} from '../actions/messariActions';
+import {GET_CRYPTO, SET_ERROR} from '../actions/messariActions';
 
 const initialState = {
   cryptos: [],
+  error: '',
 };
 
 export default (state = initialState, action) => {
@@ -10,6 +11,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         cryptos: [...state.cryptos, action.payload],
+        error: '',
+      };
+    case SET_ERROR:
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;

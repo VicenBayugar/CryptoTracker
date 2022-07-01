@@ -28,7 +28,7 @@ const Cryptocurrencies = ({item}: {item: CurrencyData}) => (
     <PricesContainer>
       <Price>${item.data.market_data.price_usd.toFixed(2)}</Price>
       <Percentage>
-        {Number(item.data.market_data.percent_change_usd_last_24_hours) > 0 ? (
+        {item.data.market_data.percent_change_usd_last_24_hours > 0 ? (
           <Arrows source={ArrowUp} />
         ) : (
           <Arrows source={ArrowDown} />

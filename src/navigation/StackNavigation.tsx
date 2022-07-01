@@ -4,6 +4,8 @@ import React from 'react';
 import AddCryptoScreen from '../screens/AddCryptoScreen';
 import HomeScreen from '../screens/HomeScreen';
 import theme from '../utils/theme';
+import me from '../assets/me.jpg';
+import {ProfilePhoto} from './styles';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,7 +24,10 @@ const StackNavigation = () => (
       <Stack.Screen
         name="Home"
         component={HomeScreen}
-        options={{title: 'CryptoTracker Pro'}}
+        options={{
+          title: 'CryptoTracker Pro',
+          headerRight: () => <ProfilePhoto source={me} />,
+        }}
       />
       <Stack.Screen
         name="AddCryptoScreen"
