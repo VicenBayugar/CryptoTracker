@@ -1,7 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
 import {Text} from 'react-native';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {getCrypto} from '../../store/actions/messariActions';
 import {
   Container,
@@ -16,9 +16,10 @@ const AddCryptoForm = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const [search, setSearch] = useState('');
+  const {cryptos} = useSelector(state => state.cryptos);
 
   const searchCrypto = () => {
-    dispatch(getCrypto(search));
+    dispatch(getCrypto(search, cryptos));
     setSearch('');
     navigation.goBack();
   };
