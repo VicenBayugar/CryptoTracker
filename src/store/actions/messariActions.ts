@@ -8,6 +8,10 @@ export const getCrypto = (assetKey: string, cryptos: CurrencyData[]) => {
       const res = await fetch(
         `https://data.messari.io/api/v1/assets/${assetKey}/metrics`,
       );
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error('That crypto does not exist');
+      }
       const data = await res.json();
       const exists = cryptos.filter(crypto => crypto.data.id === data.data.id);
       if (exists.length > 0) {

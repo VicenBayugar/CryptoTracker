@@ -12,6 +12,7 @@ const Home = () => {
   if (error.length > 0) {
     Alert.alert('Error', `${error}`);
   }
+
   return (
     <>
       <StatusBar backgroundColor={theme.colors.blue} />
