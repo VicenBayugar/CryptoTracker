@@ -1,4 +1,9 @@
-import {GET_CRYPTO, SET_ERROR, UPDATE_CRYPTO} from '../actions/messariActions';
+import {
+  GET_CRYPTO,
+  SET_ERROR,
+  UPDATE_CRYPTO,
+  DELETE_CRYPTO,
+} from '../actions/messariActions';
 
 const initialState = {
   cryptos: [],
@@ -22,6 +27,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         cryptos: action.payload,
+      };
+    case DELETE_CRYPTO:
+      return {
+        ...state,
+        cryptos: state.cryptos.filter(item => item.data.id !== action.payload),
       };
     default:
       return state;

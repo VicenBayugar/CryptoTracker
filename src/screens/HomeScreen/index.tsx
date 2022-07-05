@@ -16,12 +16,9 @@ const Home = () => {
   }
   setTimeout(() => {
     if (cryptos.length > 0) {
-      dispatch(updateCryptos(cryptos));
+      dispatch(updateCryptos());
     }
   }, 6000);
-
-  // setTimeout(() => clearInterval(timerId), 6001);
-  // clearInterval(timerId);
 
   return (
     <>

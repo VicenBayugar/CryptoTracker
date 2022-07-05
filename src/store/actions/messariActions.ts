@@ -2,6 +2,7 @@ import CurrencyData from '../../interfaces/CurrencyData';
 export const GET_CRYPTO = 'GET_CRYPTO';
 export const SET_ERROR = 'SET_ERROR';
 export const UPDATE_CRYPTO = 'UPDATE_CRYPTO';
+export const DELETE_CRYPTO = 'DELETE_CRYPTO';
 
 export const getCrypto = (assetKey: string, cryptos: CurrencyData[]) => {
   return async dispatch => {
@@ -40,8 +41,11 @@ const setError = (err: string) => {
   };
 };
 
-export const updateCryptos = (cryptos: CurrencyData[]) => {
-  return async dispatch => {
+export const updateCryptos = () => {
+  return async (dispatch, getState) => {
+    const state = getState();
+    const cryptos = state.cryptos.cryptos;
+
     try {
       const res = await fetch(
         'https://data.messari.io/api/v2/assets?fields=id,name,symbol,metrics/market_data',
@@ -69,7 +73,7 @@ export const updateCryptos = (cryptos: CurrencyData[]) => {
         return currency;
       });
 
-      const updatedCurrenciesList = cryptos.map(cryp => {
+      const updatedCurrenciesList: CurrencyData[] = cryptos.map(cryp => {
         const result = allCryptoList.filter(
           item => item.data.id === cryp.data.id,
         )[0];
@@ -83,5 +87,14 @@ export const updateCryptos = (cryptos: CurrencyData[]) => {
     } catch (error) {
       console.log(error);
     }
+  };
+};
+
+export const deleteCrypto = id => {
+  return dispatch => {
+    dispatch({
+      type: DELETE_CRYPTO,
+      payload: id,
+    });
   };
 };

@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import theme from '../../utils/theme';
 
-export const Container = styled.View`
+export const Container = styled.TouchableOpacity`
   padding-top: 25px;
   padding-bottom: 25px;
   border-color: ${theme.colors.grey};
