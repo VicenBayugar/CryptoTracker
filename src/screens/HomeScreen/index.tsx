@@ -14,15 +14,11 @@ const Home = () => {
   if (error.length > 0) {
     Alert.alert('Error', `${error}`);
   }
-  // let timer = setTimeout(() => {
-  //   if (cryptos.length > 0) {
-  //     dispatch(updateCryptos(cryptos, timer));
-  //   }
-  //   clearTimeout(timer);
-  // }, 6000);
-  useEffect(() => {
-    dispatch(updateCryptos(cryptos));
-  }, [cryptos]);
+  setTimeout(() => {
+    if (cryptos.length > 0) {
+      dispatch(updateCryptos(cryptos));
+    }
+  }, 6000);
 
   // setTimeout(() => clearInterval(timerId), 6001);
   // clearInterval(timerId);

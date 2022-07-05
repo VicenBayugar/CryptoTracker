@@ -40,8 +40,7 @@ const setError = (err: string) => {
   };
 };
 
-export const updateCryptos = (cryptos: CurrencyData[], timer) => {
-  clearTimeout(timer);
+export const updateCryptos = (cryptos: CurrencyData[]) => {
   return async dispatch => {
     try {
       const res = await fetch(
@@ -76,8 +75,6 @@ export const updateCryptos = (cryptos: CurrencyData[], timer) => {
         )[0];
         return result;
       });
-
-      console.log(updatedCurrenciesList);
 
       dispatch({
         type: UPDATE_CRYPTO,
