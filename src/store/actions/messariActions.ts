@@ -1,15 +1,20 @@
 import CurrencyData from '../../interfaces/CurrencyData';
 export const GET_CRYPTO = 'GET_CRYPTO';
 export const SET_ERROR = 'SET_ERROR';
+export const UPDATE_CRYPTO = 'UPDATE_CRYPTO';
 
 export const getCrypto = (assetKey: string, cryptos: CurrencyData[]) => {
   return async dispatch => {
     try {
       const res = await fetch(
         `https://data.messari.io/api/v1/assets/${assetKey}/metrics`,
+        {
+          headers: {
+            'x-messari-api-key': '3869500c-f5a4-4afb-bc4e-84595bf38466',
+          },
+        },
       );
       if (!res.ok) {
-        const data = await res.json();
         throw new Error('That crypto does not exist');
       }
       const data = await res.json();
@@ -32,5 +37,54 @@ const setError = (err: string) => {
   return {
     type: SET_ERROR,
     payload: err,
+  };
+};
+
+export const updateCryptos = (cryptos: CurrencyData[], timer) => {
+  clearTimeout(timer);
+  return async dispatch => {
+    try {
+      const res = await fetch(
+        'https://data.messari.io/api/v2/assets?fields=id,name,symbol,metrics/market_data',
+        {
+          headers: {
+            'x-messari-api-key': '3869500c-f5a4-4afb-bc4e-84595bf38466',
+          },
+        },
+      );
+      const data = await res.json();
+
+      const allCryptoList: CurrencyData[] = data.data.map(item => {
+        const currency: CurrencyData = {
+          data: {
+            id: item.id,
+            name: item.name,
+            symbol: item.symbol,
+            market_data: {
+              price_usd: item.metrics.market_data.price_usd,
+              percent_change_usd_last_24_hours:
+                item.metrics.market_data.percent_change_usd_last_24_hours,
+            },
+          },
+        };
+        return currency;
+      });
+
+      const updatedCurrenciesList = cryptos.map(cryp => {
+        const result = allCryptoList.filter(
+          item => item.data.id === cryp.data.id,
+        )[0];
+        return result;
+      });
+
+      console.log(updatedCurrenciesList);
+
+      dispatch({
+        type: UPDATE_CRYPTO,
+        payload: updatedCurrenciesList,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 };

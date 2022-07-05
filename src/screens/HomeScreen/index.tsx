@@ -1,17 +1,31 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Alert, StatusBar, TouchableOpacity} from 'react-native';
 import Cryptocurrencies from '../../components/Cryptocurrencies';
 import {Container, AddCryptoButton, EmptyList, CryptoList} from './styles';
 import {useNavigation} from '@react-navigation/native';
 import theme from '../../utils/theme';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import {updateCryptos} from '../../store/actions/messariActions';
 
 const Home = () => {
   const navigation = useNavigation();
-  const {cryptos, error} = useSelector(state => state.cryptos);
+  const dispatch = useDispatch();
+  let {cryptos, error} = useSelector(state => state.cryptos);
   if (error.length > 0) {
     Alert.alert('Error', `${error}`);
   }
+  // let timer = setTimeout(() => {
+  //   if (cryptos.length > 0) {
+  //     dispatch(updateCryptos(cryptos, timer));
+  //   }
+  //   clearTimeout(timer);
+  // }, 6000);
+  useEffect(() => {
+    dispatch(updateCryptos(cryptos));
+  }, [cryptos]);
+
+  // setTimeout(() => clearInterval(timerId), 6001);
+  // clearInterval(timerId);
 
   return (
     <>
