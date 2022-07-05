@@ -9,11 +9,6 @@ export const getCrypto = (assetKey: string, cryptos: CurrencyData[]) => {
     try {
       const res = await fetch(
         `https://data.messari.io/api/v1/assets/${assetKey}/metrics`,
-        {
-          headers: {
-            'x-messari-api-key': '3869500c-f5a4-4afb-bc4e-84595bf38466',
-          },
-        },
       );
       if (!res.ok) {
         throw new Error('That crypto does not exist');
@@ -49,11 +44,6 @@ export const updateCryptos = () => {
     try {
       const res = await fetch(
         'https://data.messari.io/api/v2/assets?fields=id,name,symbol,metrics/market_data',
-        {
-          headers: {
-            'x-messari-api-key': '3869500c-f5a4-4afb-bc4e-84595bf38466',
-          },
-        },
       );
       const data = await res.json();
 
