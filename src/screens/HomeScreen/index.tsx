@@ -10,7 +10,7 @@ import {updateCryptos} from '../../store/actions/messariActions';
 const Home = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  let {cryptos, error} = useSelector(state => state.cryptos);
+  const {cryptos, error} = useSelector(state => state.cryptos);
   if (error.length > 0) {
     Alert.alert('Error', `${error}`);
   }
