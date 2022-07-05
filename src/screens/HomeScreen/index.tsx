@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Alert, StatusBar, TouchableOpacity} from 'react-native';
 import Cryptocurrencies from '../../components/Cryptocurrencies';
 import {Container, AddCryptoButton, EmptyList, CryptoList} from './styles';
