@@ -29,6 +29,7 @@ const Cryptocurrencies = ({item}: {item: CurrencyData}) => {
       },
     ]);
   };
+
   return (
     <Container onPress={deleteCoin}>
       <Icon
