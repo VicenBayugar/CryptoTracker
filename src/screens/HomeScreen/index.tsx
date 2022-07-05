@@ -4,14 +4,21 @@ import Cryptocurrencies from '../../components/Cryptocurrencies';
 import {Container, AddCryptoButton, EmptyList, CryptoList} from './styles';
 import {useNavigation} from '@react-navigation/native';
 import theme from '../../utils/theme';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import {updateCryptos} from '../../store/actions/messariActions';
 
 const Home = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
   const {cryptos, error} = useSelector(state => state.cryptos);
   if (error.length > 0) {
     Alert.alert('Error', `${error}`);
   }
+  setTimeout(() => {
+    if (cryptos.length > 0) {
+      dispatch(updateCryptos());
+    }
+  }, 6000);
 
   return (
     <>
