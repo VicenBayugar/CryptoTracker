@@ -19,7 +19,7 @@ import {deleteCrypto} from '../../store/actions/messariActions';
 const Cryptocurrencies = ({item}: {item: CurrencyData}) => {
   const dispatch = useDispatch();
   const deleteCoin = () => {
-    Alert.alert('Delete', 'Do you want to delete thos crypto?', [
+    Alert.alert('Delete', 'Do you want to delete this crypto?', [
       {text: 'No', style: 'cancel'},
       {
         text: 'Delete',
