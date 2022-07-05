@@ -7,6 +7,8 @@
 - See the updated crypto information
 - Then you can delete it if you want
 
+https://user-images.githubusercontent.com/88676372/177367892-e90c6e73-4560-4003-80c7-0727d518b546.mp4
+
 #### Built with
 - React Native
 - Redux
